@@ -1,13 +1,16 @@
 import React from 'react'
+import { Auth0Provider } from '@auth0/auth0-react'
+import Logger from './Logger'
+
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-      <ul>
-        <li>Login with Auth0</li>
-        <li>Login with Auth0</li>
-      </ul>
-    </div>
+    <Auth0Provider
+      domain={import.meta.env.VITE_AUTH0_DOMAIN}
+      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+      redirectUri={window.location.origin}
+    >
+      <Logger />
+    </Auth0Provider>
   )
 }
