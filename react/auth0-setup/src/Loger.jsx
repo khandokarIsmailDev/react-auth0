@@ -20,6 +20,13 @@ export default function Logger() {
       <button onClick={() => loginWithPopup()}>Login with Popup</button>
       <button onClick={() => logout()}>Logout</button>
       <button onClick={() => loginWithRedirect()}>Login with Redirect</button>
+      <h2>User</h2>
+      <p>{isAuthenticated ? 'Logged in' : 'not logged in'}</p>
+      <p>{isLoading ? 'Loading...' : ''}</p>
+      <p>{error ? 'Error: ' + error.message : ''}</p>
+      <pre>
+        {JSON.stringify(user, null, 2)}
+      </pre>
     </div>
   )
 }
