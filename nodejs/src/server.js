@@ -23,6 +23,8 @@ const verifyJwt = jwt({
   algorithms: ['RS256']
 }).unless({ path: ['/'] })  //except / route ; mane "/" route chara ar kono route access korte parbe na; unless use na korle "/" aitaw protected hobe;
 
+app.use(verifyJwt)
+
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' })
 })
