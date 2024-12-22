@@ -22,11 +22,19 @@ export default function Logger() {
   }
 
   async function callApiProtected() {
-    const token = await getAccessTokenSilently()
-    console.log(token)
-    // const response = await fetch('http://localhost:3000/protected')
-    // const data = await response.json()
-    // console.log(data)
+    try {
+      const token = await getAccessTokenSilently()
+    // console.log(token)
+    const response = await fetch('http://localhost:3000/protected', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
