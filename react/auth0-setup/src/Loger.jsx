@@ -12,6 +12,7 @@ export default function Logger() {
     error,
     loginWithRedirect,
     logout,
+    getAccessTokenSilently, // get access token silently
   } = useAuth0()
 
   async function callApi() {
